@@ -66,7 +66,6 @@ const App = () => {
       <h2>Number of Cards: {cardSet.length}</h2>
       <h3>This is a small flashcard set covering simple Chinese phrases, written in traditional Mandarin.</h3>
       
-      {/* Visual Color Category Key */}
       <div className="category-key">
         <div className="key-item">
           <span className="color-block formality-block"></span>
@@ -97,7 +96,6 @@ const App = () => {
         <button onClick={handlePreviousCard} disabled={logPointer === 0}>
           Previous
         </button>
-        {/* Next button disables itself permanently once you reach the 10th card */}
         <button onClick={handleNextCard} disabled={logPointer === cardSet.length - 1}>
           Next
         </button>
