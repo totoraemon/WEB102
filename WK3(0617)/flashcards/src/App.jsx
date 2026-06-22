@@ -26,8 +26,11 @@ const CategoryKey = () => (
   </div>
 );
 
-const FlashCard = ({ card, isFlipped, onClick, onTransitionEnd }) => (
-  <div className="card-container" onClick={onClick}>
+const FlashCard = ({ card, isFlipped, guessStatus, onClick, onTransitionEnd }) => (
+  <div 
+    className={`card-container ${guessStatus === null ? 'locked' : ''}`} 
+    onClick={onClick}
+  >
     <div className={`card ${card.category} ${isFlipped ? 'flipped' : ''}`} onTransitionEnd={onTransitionEnd}>
       <div className="card-front">
         <h3>{card.question}</h3>
@@ -101,6 +104,17 @@ const App = () => {
     }
   };
 
+  const handleCardClick = () => {
+    // guessStatus null means guess hasn't been submitted
+    if (guessStatus === null) {
+      alert("Please submit a guess before flipping the card!");
+      return;
+    }
+  
+    // if guess has been made, allow for flip
+    setIsFlipped(!isFlipped);
+  };
+
   const handleAnimationEnd = () => {
     if (pendingDirection === 'next') {
       setLogPointer((prev) => prev + 1);
@@ -170,7 +184,7 @@ const App = () => {
       <FlashCard 
         card={currentCard} 
         isFlipped={isFlipped} 
-        onClick={() => setIsFlipped(!isFlipped)} 
+        onClick={handleCardClick} 
         onTransitionEnd={handleAnimationEnd} 
       />
 
