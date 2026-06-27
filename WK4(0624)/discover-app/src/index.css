@@ -1,0 +1,44 @@
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --bg:           #1a1a1a;
+  --surface:      #242424;
+  --surface-alt:  #2e2e2e;
+  --border:       #3a3a3a;
+  --text:         #e8e2d9;
+  --text-muted:   #888;
+  --accent:       #c9a84c;       /* aged-gold — ink, gilded frames */
+  --accent-dim:   #7a5f28;
+  --banned-bg:    #3b1f1f;
+  --banned-text:  #e07070;
+  --banned-border:#7a2e2e;
+  --radius:       6px;
+  --font-display: 'Georgia', serif;
+  --font-body:    system-ui, sans-serif;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
